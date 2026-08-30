@@ -1,0 +1,430 @@
+Validating modulus p=2013265921 and primitive root 31 ... PASS
+Validating modulus p=40961 and primitive root 3 ... PASS
+Direct large-prime check for Finite arithmetic verification 4.16
+  p                 = 2013265921
+  primitive root    = 31
+  genus range       = 1..2000
+  n range           = 0..49999
+  requested D       = D_10
+  block width       = 4096 (13 blocks)
+  packed base       = 8192
+  block NTT length  = 33554432
+  persistent R hats = 1.38 GiB
+  largest A block   = 0.50 GiB
+  two work buffers  = 0.25 GiB
+The displayed memory figures omit R-construction temporaries and allocator overhead.
+
+[phase 1/3] Constructing R through w^10
+  R NTT length = 16777216
+    ell=2: s=1..2000 (the small ell values are the expensive part)
+      ell=2, starting s=1/2000, kernel elapsed 0s
+      ell=2, starting s=250/2000, kernel elapsed 4s
+      ell=2, starting s=500/2000, kernel elapsed 16s
+      ell=2, starting s=750/2000, kernel elapsed 29s
+      ell=2, starting s=1000/2000, kernel elapsed 40s
+      ell=2, starting s=1250/2000, kernel elapsed 45s
+      ell=2, starting s=1500/2000, kernel elapsed 46s
+      ell=2, starting s=1750/2000, kernel elapsed 47s
+      ell=2, starting s=2000/2000, kernel elapsed 47s
+    ell=3: s=1..1333 (the small ell values are the expensive part)
+      ell=3, starting s=1/1333, kernel elapsed 47s
+      ell=3, starting s=166/1333, kernel elapsed 47s
+      ell=3, starting s=332/1333, kernel elapsed 49s
+      ell=3, starting s=498/1333, kernel elapsed 50s
+      ell=3, starting s=664/1333, kernel elapsed 50s
+      ell=3, starting s=830/1333, kernel elapsed 51s
+      ell=3, starting s=996/1333, kernel elapsed 51s
+      ell=3, starting s=1162/1333, kernel elapsed 51s
+      ell=3, starting s=1328/1333, kernel elapsed 51s
+      ell=3, starting s=1333/1333, kernel elapsed 51s
+    ell=4: s=1..1000 (the small ell values are the expensive part)
+      ell=4, starting s=1/1000, kernel elapsed 51s
+      ell=4, starting s=125/1000, kernel elapsed 51s
+      ell=4, starting s=250/1000, kernel elapsed 51s
+      ell=4, starting s=375/1000, kernel elapsed 51s
+      ell=4, starting s=500/1000, kernel elapsed 51s
+      ell=4, starting s=625/1000, kernel elapsed 51s
+      ell=4, starting s=750/1000, kernel elapsed 51s
+      ell=4, starting s=875/1000, kernel elapsed 51s
+      ell=4, starting s=1000/1000, kernel elapsed 51s
+    ell=5: s=1..800 (the small ell values are the expensive part)
+      ell=5, starting s=1/800, kernel elapsed 51s
+      ell=5, starting s=100/800, kernel elapsed 51s
+      ell=5, starting s=200/800, kernel elapsed 51s
+      ell=5, starting s=300/800, kernel elapsed 51s
+      ell=5, starting s=400/800, kernel elapsed 51s
+      ell=5, starting s=500/800, kernel elapsed 51s
+      ell=5, starting s=600/800, kernel elapsed 51s
+      ell=5, starting s=700/800, kernel elapsed 51s
+      ell=5, starting s=800/800, kernel elapsed 51s
+    ell=6: s=1..666 (the small ell values are the expensive part)
+      ell=6, starting s=1/666, kernel elapsed 51s
+      ell=6, starting s=83/666, kernel elapsed 52s
+      ell=6, starting s=166/666, kernel elapsed 53s
+      ell=6, starting s=249/666, kernel elapsed 54s
+      ell=6, starting s=332/666, kernel elapsed 55s
+      ell=6, starting s=415/666, kernel elapsed 55s
+      ell=6, starting s=498/666, kernel elapsed 55s
+      ell=6, starting s=581/666, kernel elapsed 55s
+      ell=6, starting s=664/666, kernel elapsed 55s
+      ell=6, starting s=666/666, kernel elapsed 55s
+    ell=7: s=1..571 (the small ell values are the expensive part)
+      ell=7, starting s=1/571, kernel elapsed 55s
+      ell=7, starting s=71/571, kernel elapsed 55s
+      ell=7, starting s=142/571, kernel elapsed 55s
+      ell=7, starting s=213/571, kernel elapsed 55s
+      ell=7, starting s=284/571, kernel elapsed 55s
+      ell=7, starting s=355/571, kernel elapsed 55s
+      ell=7, starting s=426/571, kernel elapsed 55s
+      ell=7, starting s=497/571, kernel elapsed 55s
+      ell=7, starting s=568/571, kernel elapsed 55s
+      ell=7, starting s=571/571, kernel elapsed 55s
+    ell=8: s=1..500 (the small ell values are the expensive part)
+      ell=8, starting s=1/500, kernel elapsed 55s
+      ell=8, starting s=62/500, kernel elapsed 55s
+      ell=8, starting s=124/500, kernel elapsed 55s
+      ell=8, starting s=186/500, kernel elapsed 55s
+      ell=8, starting s=248/500, kernel elapsed 55s
+      ell=8, starting s=310/500, kernel elapsed 55s
+      ell=8, starting s=372/500, kernel elapsed 55s
+      ell=8, starting s=434/500, kernel elapsed 55s
+      ell=8, starting s=496/500, kernel elapsed 55s
+      ell=8, starting s=500/500, kernel elapsed 55s
+    ell=9: s=1..444 (the small ell values are the expensive part)
+      ell=9, starting s=1/444, kernel elapsed 55s
+      ell=9, starting s=55/444, kernel elapsed 55s
+      ell=9, starting s=110/444, kernel elapsed 55s
+      ell=9, starting s=165/444, kernel elapsed 55s
+      ell=9, starting s=220/444, kernel elapsed 55s
+      ell=9, starting s=275/444, kernel elapsed 55s
+      ell=9, starting s=330/444, kernel elapsed 55s
+      ell=9, starting s=385/444, kernel elapsed 55s
+      ell=9, starting s=440/444, kernel elapsed 55s
+      ell=9, starting s=444/444, kernel elapsed 55s
+    ell=10: s=1..400 (the small ell values are the expensive part)
+      ell=10, starting s=1/400, kernel elapsed 55s
+      ell=10, starting s=50/400, kernel elapsed 55s
+      ell=10, starting s=100/400, kernel elapsed 56s
+      ell=10, starting s=150/400, kernel elapsed 56s
+      ell=10, starting s=200/400, kernel elapsed 56s
+      ell=10, starting s=250/400, kernel elapsed 56s
+      ell=10, starting s=300/400, kernel elapsed 56s
+      ell=10, starting s=350/400, kernel elapsed 56s
+      ell=10, starting s=400/400, kernel elapsed 56s
+  logarithm kernel ell=10/4000, elapsed 56s
+  logarithm kernel ell=20/4000, elapsed 57s
+  logarithm kernel ell=30/4000, elapsed 57s
+  logarithm kernel ell=40/4000, elapsed 58s
+  logarithm kernel ell=50/4000, elapsed 58s
+  logarithm kernel ell=60/4000, elapsed 58s
+  logarithm kernel ell=70/4000, elapsed 58s
+  logarithm kernel ell=80/4000, elapsed 58s
+  logarithm kernel ell=90/4000, elapsed 58s
+  logarithm kernel ell=100/4000, elapsed 58s
+  logarithm kernel ell=200/4000, elapsed 58s
+  logarithm kernel ell=300/4000, elapsed 58s
+  logarithm kernel ell=400/4000, elapsed 58s
+  logarithm kernel ell=500/4000, elapsed 58s
+  logarithm kernel ell=600/4000, elapsed 58s
+  logarithm kernel ell=700/4000, elapsed 58s
+  logarithm kernel ell=800/4000, elapsed 58s
+  logarithm kernel ell=900/4000, elapsed 58s
+  logarithm kernel ell=1000/4000, elapsed 58s
+  logarithm kernel ell=1100/4000, elapsed 58s
+  logarithm kernel ell=1200/4000, elapsed 58s
+  logarithm kernel ell=1300/4000, elapsed 58s
+  logarithm kernel ell=1400/4000, elapsed 58s
+  logarithm kernel ell=1500/4000, elapsed 58s
+  logarithm kernel ell=1600/4000, elapsed 58s
+  logarithm kernel ell=1700/4000, elapsed 58s
+  logarithm kernel ell=1800/4000, elapsed 58s
+  logarithm kernel ell=1900/4000, elapsed 58s
+  logarithm kernel ell=2000/4000, elapsed 58s
+  logarithm kernel ell=2100/4000, elapsed 58s
+  logarithm kernel ell=2200/4000, elapsed 58s
+  logarithm kernel ell=2300/4000, elapsed 58s
+  logarithm kernel ell=2400/4000, elapsed 58s
+  logarithm kernel ell=2500/4000, elapsed 58s
+  logarithm kernel ell=2600/4000, elapsed 58s
+  logarithm kernel ell=2700/4000, elapsed 58s
+  logarithm kernel ell=2800/4000, elapsed 58s
+  logarithm kernel ell=2900/4000, elapsed 58s
+  logarithm kernel ell=3000/4000, elapsed 58s
+  logarithm kernel ell=3100/4000, elapsed 58s
+  logarithm kernel ell=3200/4000, elapsed 58s
+  logarithm kernel ell=3300/4000, elapsed 58s
+  logarithm kernel ell=3400/4000, elapsed 58s
+  logarithm kernel ell=3500/4000, elapsed 58s
+  logarithm kernel ell=3600/4000, elapsed 58s
+  logarithm kernel ell=3700/4000, elapsed 58s
+  logarithm kernel ell=3800/4000, elapsed 58s
+  logarithm kernel ell=3900/4000, elapsed 58s
+  logarithm kernel ell=4000/4000, elapsed 58s
+  transforming logarithm-kernel degrees
+    K degree 1/10
+    K degree 2/10
+    K degree 3/10
+    K degree 4/10
+    K degree 5/10
+    K degree 6/10
+    K degree 7/10
+    K degree 8/10
+    K degree 9/10
+    K degree 10/10
+  exponentiated R degree 1/10, phase elapsed 1m 10s
+  exponentiated R degree 2/10, phase elapsed 1m 11s
+  exponentiated R degree 3/10, phase elapsed 1m 13s
+  exponentiated R degree 4/10, phase elapsed 1m 15s
+  exponentiated R degree 5/10, phase elapsed 1m 17s
+  exponentiated R degree 6/10, phase elapsed 1m 19s
+  exponentiated R degree 7/10, phase elapsed 1m 21s
+  exponentiated R degree 8/10, phase elapsed 1m 23s
+  exponentiated R degree 9/10, phase elapsed 1m 24s
+  exponentiated R degree 10/10, phase elapsed 1m 26s
+[phase 1/3] R complete in 1m 26s
+
+[phase 2/3] Constructing H through w^10 ... done in 0s
+
+[phase 3/3] Precomputing the 11 cumulative R transforms
+  R cumulative cutoff 10 transformed (1/11), elapsed 2s
+  R cumulative cutoff 9 transformed (2/11), elapsed 4s
+  R cumulative cutoff 8 transformed (3/11), elapsed 6s
+  R cumulative cutoff 7 transformed (4/11), elapsed 8s
+  R cumulative cutoff 6 transformed (5/11), elapsed 9s
+  R cumulative cutoff 5 transformed (6/11), elapsed 11s
+  R cumulative cutoff 4 transformed (7/11), elapsed 13s
+  R cumulative cutoff 3 transformed (8/11), elapsed 15s
+  R cumulative cutoff 2 transformed (9/11), elapsed 17s
+  R cumulative cutoff 1 transformed (10/11), elapsed 19s
+  R cumulative cutoff 0 transformed (11/11), elapsed 21s
+[phase 3/3] cumulative R transforms complete in 21s
+
+[block 1/13] output n=0..4095, A-input n=0..4095
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 6s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8191950, zero residues=0, block time=23s
+  cumulative: tested=8191950, zero residues=0, estimated remaining block time=4m 39s
+
+[block 2/13] output n=4096..8191, A-input n=2096..8191
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 9s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=16383950, zero residues=0, estimated remaining block time=4m 16s
+
+[block 3/13] output n=8192..12287, A-input n=6192..12287
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 17s)
+  transformed A degree 9/10 (block elapsed 19s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=24575950, zero residues=0, estimated remaining block time=3m 52s
+
+[block 4/13] output n=12288..16383, A-input n=10288..16383
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=32767950, zero residues=0, estimated remaining block time=3m 29s
+
+[block 5/13] output n=16384..20479, A-input n=14384..20479
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 19s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=40959950, zero residues=0, estimated remaining block time=3m 6s
+
+[block 6/13] output n=20480..24575, A-input n=18480..24575
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 9s)
+  transformed A degree 4/10 (block elapsed 11s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 22s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=24s
+  cumulative: tested=49151950, zero residues=0, estimated remaining block time=2m 43s
+
+[block 7/13] output n=24576..28671, A-input n=22576..28671
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 9s)
+  transformed A degree 4/10 (block elapsed 11s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 22s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=24s
+  cumulative: tested=57343950, zero residues=0, estimated remaining block time=2m 20s
+
+[block 8/13] output n=28672..32767, A-input n=26672..32767
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 6s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 19s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=65535950, zero residues=0, estimated remaining block time=1m 57s
+
+[block 9/13] output n=32768..36863, A-input n=30768..36863
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 22s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=24s
+  cumulative: tested=73727950, zero residues=0, estimated remaining block time=1m 33s
+
+[block 10/13] output n=36864..40959, A-input n=34864..40959
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 9s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 22s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=24s
+  cumulative: tested=81919950, zero residues=0, estimated remaining block time=1m 10s
+
+[block 11/13] output n=40960..45055, A-input n=38960..45055
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=23s
+  cumulative: tested=90111950, zero residues=0, estimated remaining block time=47s
+
+[block 12/13] output n=45056..49151, A-input n=43056..49151
+  constructed A coefficients in 1s
+  transformed A degree 0/10 (block elapsed 3s)
+  transformed A degree 1/10 (block elapsed 5s)
+  transformed A degree 2/10 (block elapsed 7s)
+  transformed A degree 3/10 (block elapsed 9s)
+  transformed A degree 4/10 (block elapsed 11s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 14s)
+  transformed A degree 7/10 (block elapsed 16s)
+  transformed A degree 8/10 (block elapsed 18s)
+  transformed A degree 9/10 (block elapsed 20s)
+  transformed A degree 10/10 (block elapsed 22s)
+  inverse transform ... done
+  block result: tested=8192000, zero residues=0, block time=24s
+  cumulative: tested=98303950, zero residues=0, estimated remaining block time=23s
+
+[block 13/13] output n=49152..49999, A-input n=47152..49999
+  constructed A coefficients in 0s
+  transformed A degree 0/10 (block elapsed 2s)
+  transformed A degree 1/10 (block elapsed 4s)
+  transformed A degree 2/10 (block elapsed 6s)
+  transformed A degree 3/10 (block elapsed 8s)
+  transformed A degree 4/10 (block elapsed 10s)
+  transformed A degree 5/10 (block elapsed 12s)
+  transformed A degree 6/10 (block elapsed 13s)
+  transformed A degree 7/10 (block elapsed 15s)
+  transformed A degree 8/10 (block elapsed 17s)
+  transformed A degree 9/10 (block elapsed 19s)
+  transformed A degree 10/10 (block elapsed 21s)
+  inverse transform ... done
+  block result: tested=1696000, zero residues=0, block time=23s
+  cumulative: tested=99999950, zero residues=0, estimated remaining block time=0s
+
+SUMMARY
+  modulus       = 2013265921
+  tested pairs  = 99999950
+  zero residues = 0
+  checksum      = 484549002
+  total time    = 6m 50s
+  zero list     = check_4_16_large_prime_unresolved.tsv
+RESULT check=4.16 modulus=2013265921 status=PASS unresolved=0

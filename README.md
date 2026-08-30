@@ -1,17 +1,9 @@
 # Referee verification scripts
 
-This directory contains one no-argument Python checker for each numerical
-verification box included here from the manuscript.  The checkers were matched
-to the attached manuscript version
-`Mgn_point_counts_n_0 (6).pdf`, whose SHA-256 digest is
-
-```
-4886413e22c3462624cf1620d8862ff713b111a7ec4b849d5b1aebf1fbd5ceeb
-```
-
-Finite arithmetic verification 4.16 is intentionally excluded.  That box is
-checked by the separate, longer-running C++ computation described in the
-manuscript.
+This directory contains checkers for each numerical
+verification box included in the manuscript.
+For all but verification 4.16 the checkers are python programs that cen be found in the root directory.
+The Finite arithmetic verification 4.16 also uses some C++ parts and is located in a subfolder. To check 4.16, please run check_4_16/check4_16.py. It is expected to run for around 10 minutes.
 
 ## Quick start
 
@@ -35,7 +27,7 @@ checker prints the quantities it reconstructed, the claimed threshold, useful
 worst-case diagnostics, and a final `PASS`; a failed or inconclusive check exits
 with a nonzero status.
 
-On a representative Linux run, the complete suite took about six minutes.
+On a representative Linux run, the complete suite took about six minutes (excluding 4.16).
 Almost all of that time was the exhaustive 2,150,400-box replay in
 `check_5_9.py`; the other five scripts together took about six seconds.
 

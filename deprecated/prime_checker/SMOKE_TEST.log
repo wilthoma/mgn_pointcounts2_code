@@ -1,0 +1,3 @@
+PASS: large-NTT generator matches archived small generator at G=20,W=2,S=30,p=101.
+PASS checksum=937273313
+PASS checksum=937273313

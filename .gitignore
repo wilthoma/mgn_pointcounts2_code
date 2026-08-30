@@ -10,3 +10,4 @@ prime_checker/*.txt
 
 # Ignore macOS metadata
 .DS_Store
+.venv/
