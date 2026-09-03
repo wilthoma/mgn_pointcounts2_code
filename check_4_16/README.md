@@ -1,7 +1,6 @@
-# Experimental direct large-prime check for Verification 4.16
+# Direct large-prime check for Verification 4.16
 
-This directory contains an experimental replacement for the many-small-prime
-calculation in Finite arithmetic verification 4.16.
+This directory contains a checker for Finite arithmetic verification 4.16.
 
 The program works modulo
 
@@ -11,8 +10,7 @@ p = 2013265921 = 15 * 2^27 + 1
 
 with primitive root `31`.  Since `p > 50000`, every `0 <= n < 50000`
 has `q=0` in the modular translation formula.  The program therefore checks
-`D_10(g,n)` directly.  It does **not** construct `D_0,...,D_14`, and it does
-not write the large coefficient tables to disk.
+`D_10(g,n)` directly.
 
 The full run tests precisely
 
@@ -32,7 +30,7 @@ The convenience runner needs Python 3 and a C++17 compiler.  It takes no
 arguments:
 
 ```bash
-python3 run_check_4_16.py
+python3 check_4_16.py
 ```
 
 It compiles the C++ source, runs the built-in tests, starts the full

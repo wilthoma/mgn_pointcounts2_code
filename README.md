@@ -2,8 +2,8 @@
 
 This directory contains checkers for each numerical
 verification box included in the manuscript.
-For all but verification 4.16 the checkers are python programs that cen be found in the root directory.
-The Finite arithmetic verification 4.16 also uses some C++ parts and is located in a subfolder. To check 4.16, please run check_4_16/check4_16.py. It is expected to run for around 10 minutes.
+For all but verification 4.16 the checkers are python programs that can be found in the root directory.
+The Finite arithmetic verification 4.16 also uses some C++ parts and is located in a subfolder. To check 4.16, please run `check_4_16/check_4_16.py`. It is expected to run for around 10 minutes.
 
 ## Quick start
 
