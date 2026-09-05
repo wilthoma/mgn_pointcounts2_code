@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Finite arithmetic verification 4.12.
+"""Recheck Finite arithmetic verification 4.13.
 
 The manuscript defines, for 3 <= g <= 2000,
 

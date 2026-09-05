@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile and run the experimental large-prime checker for box 4.16.
+"""Compile and run the experimental large-prime checker for box 4.17.
 
 Running this file without arguments performs the full computation.  Compiler
 and program output are shown immediately and also saved in

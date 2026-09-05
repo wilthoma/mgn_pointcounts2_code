@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Finite arithmetic verification 4.14.
+"""Recheck Finite arithmetic verification 4.15.
 
 For each 1 <= g <= 2000, the manuscript asks for a finite list P_g of
 primes p such that
