@@ -16,12 +16,12 @@ from time import perf_counter
 
 
 CHECKERS = (
-    "check_4_12.py",
-    "check_4_14.py",
-    "check_5_5.py",
-    "check_5_9.py",
-    "check_6_2.py",
-    "check_6_6.py",
+    "ag_bounds.py",
+    "prime_cover.py",
+    "error_finite.py",
+    "interval_check_m.py",
+    "llh_bounds.py",
+    "lambda_t_bounds.py",
 )
 
 
