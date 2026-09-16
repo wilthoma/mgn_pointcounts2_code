@@ -1,6 +1,6 @@
-# Direct large-prime check for Verification 4.16
+# Direct large-prime check
 
-This directory contains a checker for Finite arithmetic verification 4.16.
+This directory contains a checker for Finite arithmetic verification `finite_cover`.
 
 The program works modulo
 
@@ -30,7 +30,7 @@ The convenience runner needs Python 3 and a C++17 compiler.  It takes no
 arguments:
 
 ```bash
-python3 check_4_16.py
+python3 finite_cover.py
 ```
 
 It compiles the C++ source, runs the built-in tests, starts the full
