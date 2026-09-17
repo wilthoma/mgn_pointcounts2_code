@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Finite arithmetic verification 4.13.
+"""Recheck Finite arithmetic verification ag_bounds.
 
 The manuscript defines, for 3 <= g <= 2000,
 
@@ -17,7 +17,7 @@ keeps every ``fmpq`` in lowest terms with positive denominator.
 
 Run from the repository directory with
 
-    python3 check_4_12.py
+    python3 ag_bounds.py
 """
 
 from __future__ import annotations
@@ -63,7 +63,7 @@ def main() -> int:
     started = perf_counter()
     bound = fmpz(BOUND_BASE) ** BOUND_EXPONENT
 
-    print("Finite arithmetic verification 4.12")
+    print("Finite arithmetic verification ag_bounds")
     print("=" * 38)
     print("Reconstructing A_g from the exact Bernoulli numbers in (4.21).")
     print(f"Genus range: {FIRST_GENUS} <= g <= {LAST_GENUS}")

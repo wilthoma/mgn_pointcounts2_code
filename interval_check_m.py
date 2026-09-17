@@ -737,7 +737,7 @@ def main() -> int:
         return 1
 
     elapsed = time.perf_counter() - started
-    print(f"\nPASS: every assertion in Certified analytic verification 5.9 was verified.")
+    print(f"\nPASS: every assertion in Certified analytic verification interval_check_m was verified.")
     print(f"Elapsed time: {elapsed:.1f} seconds")
     return 0
 

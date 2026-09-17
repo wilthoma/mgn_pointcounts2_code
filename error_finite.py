@@ -143,7 +143,7 @@ def main() -> int:
     ctx.prec = WORKING_PRECISION_BITS
     pi = arb.pi()
 
-    print("Certified analytic verification 5.5: finite error-bound evaluation")
+    print("Certified analytic verification error_finite: finite error-bound evaluation")
     print(f"Arithmetic: python-flint/Arb at {WORKING_PRECISION_BITS} bits")
     print("Every displayed enclosure includes all rounding and transcendental error.")
 
