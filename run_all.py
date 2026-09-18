@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Run every included verification in manuscript order.
+"""Run the root-directory verifications in manuscript order.
 
 Each checker remains an ordinary, independently runnable Python script.  This
-small driver is only a convenience for a referee who wants to run the complete
-suite in one command.  Finite arithmetic verification 4.16 is deliberately not
-part of this repository.
+small driver runs those six checkers in one command.  Computer Verification
+4.17 is included in the finite_cover subdirectory and is run separately with
+``python3 finite_cover/finite_cover.py``.
 """
 
 from __future__ import annotations

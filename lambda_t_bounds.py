@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Recheck Certified analytic verification 6.6 (finite data for R).
+"""Recheck Computer Verification 6.6 (finite data for R).
 
 The calculation is exact: every formal-series coefficient is a
 ``fractions.Fraction``.  We reconstruct
 
     log R(u,z,w) = sum_{m >= 1} Lambda_m(z,w) u^m  (mod w^15)
 
-directly from equations (3.3), (3.11), (6.18), and (6.19) of the paper.
+directly from equations (3.3), (3.11), (6.14), and (6.15) of the paper.
 No precomputed Lambda polynomial or lambda value is used as input.
 
 The final three comparisons contain powers of pi and, for odd indices,
@@ -316,7 +316,7 @@ def reconstruct_lambdas() -> list[BiPoly]:
 
 
 def coefficient_l1_norm(poly: BiPoly) -> Rational:
-    """The norm ||.||_+ from (6.19)."""
+    """The norm ||.||_+ from (6.15)."""
 
     return sum((abs(coefficient) for coefficient in poly.values()), Fraction(0))
 
@@ -350,7 +350,7 @@ def scalar_sum_upper_bound(lambdas: list[Rational]) -> tuple[Rational, Rational,
 
 
 def t_upper_bound(m: int) -> Rational:
-    """Exact rational upper bound for T_m from (6.32)-(6.33).
+    """Exact rational upper bound for T_m from (6.29)-(6.30).
 
     We use pi>3 in every pi^{-b}; for odd m we additionally use
     1/sqrt(pi)<4/7 for the half-integral Gamma factor.
@@ -387,7 +387,7 @@ def main() -> int:
         print("This checker takes no command-line arguments.", file=sys.stderr)
         return 2
 
-    print("Certified analytic verification 6.6: finite data for R")
+    print("Computer Verification 6.6: finite data for R")
     print("---------------------------------------------------------")
     print("Reconstructing log R through u^10 and modulo w^15")
     print("from equations (3.3) and (3.11), using exact rational arithmetic.")
@@ -429,7 +429,7 @@ def main() -> int:
     rational_part, inverse_sqrt_part, finite_sum_upper = scalar_sum_upper_bound(computed)
     finite_sum_ok = finite_sum_upper < Fraction(17, 20)
     all_ok &= finite_sum_ok
-    print("\nFirst scalar inequality in (6.34):")
+    print("\nFirst scalar inequality in (6.31):")
     print(
         "  The exact sum has the form A + B/sqrt(pi), with\n"
         f"    A = {format_fraction(rational_part)}\n"
@@ -446,8 +446,8 @@ def main() -> int:
     t11_ok = t11_upper < Fraction(1, 32)
     t12_ok = t12_upper < Fraction(1, 96)
     all_ok &= t11_ok and t12_ok
-    print("\nRemaining scalar inequalities in (6.34):")
-    print("  T_11 and T_12 are evaluated from (6.32)-(6.33).")
+    print("\nRemaining scalar inequalities in (6.31):")
+    print("  T_11 and T_12 are evaluated from (6.29)-(6.30).")
     print(
         "  Replacing pi by 3 (and, for T_11, sqrt(pi) by 7/4) gives"
     )
@@ -461,7 +461,7 @@ def main() -> int:
     )
 
     if all_ok:
-        print("\nPASS: every statement in Certified analytic verification 6.6 holds.")
+        print("\nPASS: every statement in Computer Verification 6.6 holds.")
         return 0
     print("\nFAIL: at least one reconstructed value or inequality is incorrect.")
     return 1

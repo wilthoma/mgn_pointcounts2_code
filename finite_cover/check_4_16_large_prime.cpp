@@ -12,7 +12,7 @@
 #include <utility>
 #include <vector>
 
-// Experimental direct-modulus checker for Finite arithmetic verification 4.16.
+// Direct-modulus checker for Computer Verification 4.17 (finite_cover.py).
 //
 // The production computation is carried out in
 //
@@ -472,10 +472,10 @@ public:
             std::cout << "  zero list     = " << parameters_.unresolved_path << '\n';
         }
         if (zeros == 0) {
-            std::cout << "RESULT check=4.16 modulus=" << Modulus
+            std::cout << "RESULT check=4.17 modulus=" << Modulus
                       << " status=PASS unresolved=0\n";
         } else {
-            std::cout << "RESULT check=4.16 modulus=" << Modulus
+            std::cout << "RESULT check=4.17 modulus=" << Modulus
                       << " status=INCOMPLETE unresolved=" << zeros << '\n';
         }
         return checksum;
@@ -567,7 +567,7 @@ private:
             maximum_local_width * sizeof(u32);
         const std::size_t work_buffers = 2 * packed_transform_length_ * sizeof(u32);
 
-        std::cout << "Direct large-prime check for Finite arithmetic verification 4.16\n"
+        std::cout << "Direct large-prime check for Computer Verification 4.17\n"
                   << "  p                 = " << Modulus << '\n'
                   << "  primitive root    = " << PrimitiveRoot << '\n'
                   << "  genus range       = 1.." << genus_bound_ << '\n'
@@ -1105,7 +1105,7 @@ int main(int argc, char** argv) {
         }
         if (argc != 1) {
             std::cerr << "Usage: " << argv[0] << " [--self-test|--smoke]\n"
-                      << "With no arguments, run the full 4.16 experiment.\n";
+                      << "With no arguments, run the full Computer Verification 4.17.\n";
             return 2;
         }
         return run_production_check();

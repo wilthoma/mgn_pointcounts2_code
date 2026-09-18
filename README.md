@@ -1,9 +1,10 @@
 # Referee verification scripts
 
-This directory contains checkers for each numerical
-verification box included in the manuscript.
-For all but verification `finite_cover` the checkers are python programs that can be found in the root directory.
-The Finite arithmetic verification finite_cover also uses some C++ parts and is located in a subfolder. To check it, please run `finite_cover/finite_cover.py`. It is expected to run for around 10 minutes.
+This directory contains checkers for each Computer Verification in the manuscript.
+The six Python checkers in the root directory are run together by `run_all.py`.
+Computer Verification 4.17 (`finite_cover.py`) also uses C++ and is located in
+the `finite_cover` subdirectory. Run it separately with
+`python3 finite_cover/finite_cover.py`. It is expected to run for around 10 minutes.
 
 ## Quick start
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Recheck Certified analytic verification 5.9.
+"""Recheck Computer Verification 5.9 (interval_check_m.py).
 
-This script is a direct interval evaluation of equations (5.25)--(5.46) in
+This script is a direct interval evaluation of equations (5.19)--(5.32) in
 the manuscript.  It has no command-line options and uses no saved numerical
 certificate values.  The only imported numerical package is NumPy, which is
 used to evaluate many independent intervals in parallel.
@@ -286,7 +286,7 @@ def polynomial_multiply(a: list[Interval], b: list[Interval]) -> list[Interval]:
 
 
 def l_sigma(sigma: int, pi: Interval) -> list[Interval]:
-    """Construct the real polynomial L_sigma from equation (5.30)."""
+    """Construct the real polynomial L_sigma from equation (5.23)."""
 
     sigma %= 4
     out = polynomial_zero()
@@ -304,7 +304,7 @@ def l_sigma(sigma: int, pi: Interval) -> list[Interval]:
 
 
 def h_polynomial(rho: int, m: int, x: Interval, pi: Interval) -> list[Interval]:
-    """Construct H_{rho,m} in (5.31), including the exact-zero rule (5.33)."""
+    """Construct H_{rho,m} in (5.24), including the exact-zero rule (5.26)."""
 
     sigma = (rho - 1 - m) % 4
     previous_sigma = (sigma - 1) % 4
@@ -325,14 +325,14 @@ def h_polynomial(rho: int, m: int, x: Interval, pi: Interval) -> list[Interval]:
     h[0] = Interval.point(0.0)
 
     # Here sigma is congruent to g-1-m modulo 4.  If it is odd, the
-    # underlying index is > 1 and odd (g >= 2000), so (5.33) is exact.
+    # underlying index is > 1 and odd (g >= 2000), so (5.26) is exact.
     if sigma & 1:
         h[1] = Interval.point(0.0)
     return h
 
 
 def nonnegative_endpoint(value: Interval) -> Interval:
-    """Use the known nonnegative endpoint in (5.25)--(5.26).
+    """Use the known nonnegative endpoint in (5.19)--(5.20).
 
     At an actual manuscript parameter, ``u=1/a`` and ``v=1/(a+n-j)``
     with ``n>=j``, so ``u-v`` (and every difference of their positive
@@ -346,7 +346,7 @@ def nonnegative_endpoint(value: Interval) -> Interval:
 
 
 def v_polynomial(m: int, j: int, x: Interval, s: Interval) -> list[Interval]:
-    """Construct V_{m,j} from (5.25)--(5.28)."""
+    """Construct V_{m,j} from (5.19)--(5.21)."""
 
     a = m + j + 2
     b = m + 2
@@ -395,7 +395,7 @@ def r_polynomial(m: int, j: int) -> list[Interval]:
 
 
 def omega(m: int, j: int, x: Interval, s: Interval, pi: Interval) -> Interval:
-    """The prefactors in (5.34); omega_{0,0}=1."""
+    """The prefactors in (5.27); omega_{0,0}=1."""
 
     if m == 0:
         return Interval.point(np.ones(np.broadcast_shapes(x.lo.shape, s.lo.shape)))
@@ -407,7 +407,7 @@ def omega(m: int, j: int, x: Interval, s: Interval, pi: Interval) -> Interval:
 
 
 def m_base_polynomial(rho: int, x: Interval, s: Interval, pi: Interval) -> list[Interval]:
-    """Return F with M_Gamma = T_<=Gamma(e^(Lw) F), cf. (5.34)."""
+    """Return F with M_Gamma = T_<=Gamma(e^(Lw) F), cf. (5.27)."""
 
     shape = np.broadcast_shapes(x.lo.shape, s.lo.shape)
     total = polynomial_zero(shape)
@@ -544,7 +544,7 @@ def l_mesh(parity: str) -> tuple[np.ndarray, np.ndarray]:
 
 
 def finite_l_check(parity: str, rho: int, pi: Interval) -> dict[str, object]:
-    """Verify (5.36) for one parity on all x-by-L product boxes."""
+    """Verify (5.29) for one parity on all x-by-L product boxes."""
 
     l_lo, l_hi = l_mesh(parity)
     expected_l_boxes = 4208 if parity == "even" else 4192
@@ -621,7 +621,7 @@ def finite_l_check(parity: str, rho: int, pi: Interval) -> dict[str, object]:
 
 
 def tail_check(pi: Interval) -> dict[str, object]:
-    """Verify the two regular compact inequalities (5.39) and (5.46)."""
+    """Verify the two regular compact inequalities (5.30) and (5.32)."""
 
     x = Interval(0.0, rational(1, 2000).hi)
     exp32 = exp_negative_points(np.float64(32.0))
@@ -640,11 +640,11 @@ def tail_check(pi: Interval) -> dict[str, object]:
     if odd_margin <= 0.0:
         raise RuntimeError(
             "odd L>=32 compact box is inconclusive: "
-            f"left side of (5.39) = [{odd_signed.lo},{odd_signed.hi}]"
+            f"left side of (5.30) = [{odd_signed.lo},{odd_signed.hi}]"
         )
 
     # Even g: remove the s*J*L^9 term and regularize degrees 0,...,8.
-    # This is the polynomial A in (5.42); no expression 1/theta is formed.
+    # This is the polynomial A defined just before (5.31); no 1/theta is formed.
     even_base = m_base_polynomial(0, x, s, pi)
     even_coefficients = m_coefficients(10, even_base)
     even_regular = regularized_reciprocal_polynomial(
@@ -664,7 +664,7 @@ def tail_check(pi: Interval) -> dict[str, object]:
     if even_margin <= 0.0:
         raise RuntimeError(
             "even L>=32 compact box is inconclusive: "
-            f"left side of (5.46) = [{even_signed.lo},{even_signed.hi}]"
+            f"left side of (5.32) = [{even_signed.lo},{even_signed.hi}]"
         )
 
     return {
@@ -701,16 +701,16 @@ def main() -> int:
         print("This certificate script takes no command-line arguments.", file=sys.stderr)
         return 2
     started = time.perf_counter()
-    print("Certified analytic verification 5.9")
+    print("Computer Verification 5.9 (interval_check_m.py)")
     print("====================================")
-    print("Reconstructing equations (5.25)--(5.34) with outward interval arithmetic.")
+    print("Reconstructing equations (5.19)--(5.27) with outward interval arithmetic.")
     print("No saved function values or previously certified lower bounds are used.\n")
 
     try:
         pi = pi_interval()
         print(f"Certified pi interval: [{float(pi.lo):.17g}, {float(pi.hi):.17g}]\n")
         print("Case A: 0 <= L <= 32")
-        print("Checking (5.36) with Gamma in {10,14} and epsilon in {-1,+1}.")
+        print("Checking (5.29) with Gamma in {10,14} and epsilon in {-1,+1}.")
         even = finite_l_check("even", 0, pi)
         print_finite_summary(even)
         odd = finite_l_check("odd", 1, pi)
@@ -724,11 +724,11 @@ def main() -> int:
         print("Checking the regularized compact polynomials, never evaluating 1/theta.")
         tail = tail_check(pi)
         print(
-            "  Odd box, left side of (5.39):  "
+            "  Odd box, left side of (5.30):  "
             f"[{tail['odd_interval'][0]:.12g}, {tail['odd_interval'][1]:.12g}]"
         )
         print(
-            "  Even box, left side of (5.46): "
+            "  Even box, left side of (5.32): "
             f"[{tail['even_interval'][0]:.12g}, {tail['even_interval'][1]:.12g}]"
         )
 
@@ -737,7 +737,7 @@ def main() -> int:
         return 1
 
     elapsed = time.perf_counter() - started
-    print(f"\nPASS: every assertion in Certified analytic verification interval_check_m was verified.")
+    print(f"\nPASS: every assertion in Computer Verification 5.9 was verified.")
     print(f"Elapsed time: {elapsed:.1f} seconds")
     return 0
 

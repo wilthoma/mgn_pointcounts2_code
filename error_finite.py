@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Certify the three numerical inequalities in Verification 5.5.
+"""Certify the three numerical inequalities in Computer Verification 5.5.
 
 The manuscript first bounds the error term E(g,n) by a finite sum, an
-infinite tail, and a boundary term.  Equations (5.19)--(5.21) reduce the
+infinite tail, and a boundary term.  Equations (5.16) and (5.17) reduce the
 last two quantities to finite expressions.  This script evaluates exactly
 those three expressions.
 
@@ -64,7 +64,7 @@ def certify_less(
 
 
 def finite_part(pi: arb) -> arb:
-    r"""Return the finite expression on the left of (5.22).
+    r"""Return the finite-sum part of (5.15), bounded in Computer Verification 5.5.
 
     The notation (1997)_{m-1} in the manuscript denotes the falling
     factorial
@@ -98,7 +98,7 @@ def finite_part(pi: arb) -> arb:
 
 
 def geometric_tail_bound(pi: arb) -> arb:
-    r"""Return the two geometric-series bounds displayed in (5.23)."""
+    r"""Return the two geometric-series bounds displayed in (5.16)."""
 
     pi_squared = pi**2
     two_pi = 2 * pi
@@ -128,7 +128,7 @@ def geometric_tail_bound(pi: arb) -> arb:
 
 
 def boundary_expression(h: int, pi: arb) -> arb:
-    r"""Evaluate the last expression in (5.18) at the integer h."""
+    r"""Evaluate the last expression in (5.15) at the integer h."""
 
     first = arb(6) ** (h - 2) * (arb(h) / 2).gamma()
     second = 2 * arb(6) ** (h - 1) * (arb(h + 1) / 2).gamma()
@@ -143,11 +143,11 @@ def main() -> int:
     ctx.prec = WORKING_PRECISION_BITS
     pi = arb.pi()
 
-    print("Certified analytic verification error_finite: finite error-bound evaluation")
+    print("Computer Verification 5.5 (error_finite.py): finite error-bound evaluation")
     print(f"Arithmetic: python-flint/Arb at {WORKING_PRECISION_BITS} bits")
     print("Every displayed enclosure includes all rounding and transcendental error.")
 
-    print("\nComputing the finite part in (5.22):")
+    print("\nComputing the finite part of (5.15), bounded in Computer Verification 5.5:")
     print("  600*(55/12)*(2*pi)^2/(1998*1997)")
     print("  + sum_{m=3}^{1997} 600*6^m*Gamma(m/2+1)*(2*pi)^m")
     print("      / (1998*(1997)_{m-1}), with a falling factorial.")
@@ -159,7 +159,7 @@ def main() -> int:
         "33/1000 = 0.033",
     )
 
-    print("\nComputing the two parity-tail bounds in (5.23), obtained from")
+    print("\nComputing the two parity-tail bounds in (5.16), obtained from")
     print("the two-step ratio 72*pi^2/(m+3).")
     tail = geometric_tail_bound(pi)
     tail_ok = certify_less(
@@ -169,7 +169,7 @@ def main() -> int:
         "1/10^9 = 0.000000001",
     )
 
-    print("\nComputing the boundary expression from the last line of (5.18):")
+    print("\nComputing the boundary expression from the last line of (5.15):")
     print("  [6^(h-2)*Gamma(h/2) + 2*6^(h-1)*Gamma((h+1)/2)]")
     print("  * (2*pi)^h / (h-2)!")
     boundary_2000 = boundary_expression(2000, pi)
@@ -228,10 +228,10 @@ def main() -> int:
     )
     print("\n" + "=" * 72)
     if all_ok:
-        print("PASS: all statements in Certified analytic verification 5.5 hold.")
+        print("PASS: all statements in Computer Verification 5.5 hold.")
         return 0
 
-    print("FAIL OR INCONCLUSIVE: Verification 5.5 was not certified.")
+    print("FAIL OR INCONCLUSIVE: Computer Verification 5.5 was not certified.")
     return 1
 
 

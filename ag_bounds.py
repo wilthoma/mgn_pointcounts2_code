@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Finite arithmetic verification ag_bounds.
+"""Recheck Computer Verification 4.13 (ag_bounds.py).
 
 The manuscript defines, for 3 <= g <= 2000,
 
@@ -39,7 +39,7 @@ BOUND_EXPONENT = 782
 
 
 def numerator_A(g: int) -> fmpz:
-    """Return the integer A_g from equation (4.21), using exact arithmetic."""
+    """Return the integer A_g from equation (4.14), using exact arithmetic."""
 
     if g in (1, 2):
         return fmpz(1)
@@ -63,9 +63,9 @@ def main() -> int:
     started = perf_counter()
     bound = fmpz(BOUND_BASE) ** BOUND_EXPONENT
 
-    print("Finite arithmetic verification ag_bounds")
+    print("Computer Verification 4.13 (ag_bounds.py)")
     print("=" * 38)
-    print("Reconstructing A_g from the exact Bernoulli numbers in (4.21).")
+    print("Reconstructing A_g from the exact Bernoulli numbers in (4.14).")
     print(f"Genus range: {FIRST_GENUS} <= g <= {LAST_GENUS}")
     print(f"Claim: |A_g| < {BOUND_BASE}^{BOUND_EXPONENT}")
     print("Arithmetic: exact FLINT integers and rational numbers (no floats)\n")

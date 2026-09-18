@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Finite arithmetic verification 4.15.
+"""Recheck Computer Verification 4.15 (prime_cover.py).
 
 For each 1 <= g <= 2000, the manuscript asks for a finite list P_g of
 primes p such that
@@ -46,7 +46,7 @@ def require(condition: bool, message: str) -> None:
 
 
 def genus_data(g: int, bernoulli_cache: dict[int, fmpq]) -> tuple[int, int]:
-    """Return the pair (A_g, d_g) defined in equation (4.21).
+    """Return the pair (A_g, d_g) defined in equation (4.14).
 
     For g >= 3, let h=floor((g-1)/2), d_g=2h-2, and reduce
 
@@ -260,7 +260,7 @@ def main() -> None:
     if len(sys.argv) != 1:
         raise SystemExit("This checker takes no command-line arguments.")
 
-    print("Finite arithmetic verification 4.14")
+    print("Computer Verification 4.15 (prime_cover.py)")
     print("=" * 39)
     print("Target: for every 1 <= g <= 2000, construct primes p > 4012")
     print("with p not dividing A_g whose closed intervals")
@@ -275,7 +275,7 @@ def main() -> None:
         all(0 <= d_g <= 1_996 for _, d_g in genus_values),
         "computed d_g lies outside the range stated in the manuscript",
     )
-    print("Computed every A_g and d_g exactly from equation (4.21).")
+    print("Computed every A_g and d_g exactly from equation (4.14).")
 
     # No interval can need a prime larger than this during the greedy search.
     candidate_limit = (N_MAX - 1 - 1) // 9 + 1
@@ -332,7 +332,7 @@ def main() -> None:
     print(
         f"Smallest terminal excess: {terminal_excess} integer(s) (g={terminal_g})."
     )
-    print("\nPASS: all three claims in Finite arithmetic verification 4.14 hold.")
+    print("\nPASS: all three claims in Computer Verification 4.15 hold.")
 
 
 if __name__ == "__main__":

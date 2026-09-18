@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the three finite computations in Certified verification 6.2.
+"""Verify the three finite computations in Computer Verification 6.2.
 
 The script reconstructs every polynomial from the definitions in the paper.  It
 does not read a table of precomputed norms.
@@ -14,7 +14,7 @@ an upper bound, rather than a floating-point approximation.
 
 Run from any directory with
 
-    python3 check_6_2.py
+    python3 llh_bounds.py
 
 No third-party Python package is required.
 """
@@ -103,7 +103,7 @@ def bernoulli_at_one(index: int) -> Fraction:
 
 
 def d_polynomial(q: int) -> Polynomial:
-    r"""Construct d_q(w), truncated after w^14, from formula (6.6).
+    r"""Construct d_q(w), truncated after w^14, from formula (6.4).
 
     Taylor expansion at 1 gives
 
@@ -142,7 +142,7 @@ def normalized_ell_core(q: int) -> Polynomial:
 def normalized_h_cores(ell_cores: dict[int, Polynomial]) -> dict[int, Polynomial]:
     r"""Reconstruct A_q with Hhat_q(w) = pi^(q+1) A_q(w).
 
-    After taking the common power pi^(q+1) out of recurrence (6.7),
+    After taking the common power pi^(q+1) out of recurrence (6.5),
 
       A_q = E_q + (1/2) sum_{r=1}^{q-1} c_{q,r} E_{q-r} A_r,
 
@@ -210,10 +210,10 @@ def decimal_bound(value: Fraction, places: int, upper: bool) -> str:
 
 
 def l_polynomial(sigma: int) -> list[tuple[Fraction, int]]:
-    r"""Construct L_sigma from (5.30).
+    r"""Construct L_sigma from (5.23).
 
     Each returned pair (c,k) represents the coefficient c*pi^k of w^k.
-    Simplifying the powers of i in (5.30), only odd k survive for sigma=0
+    Simplifying the powers of i in (5.23), only odd k survive for sigma=0
     and only even k survive for sigma=1.  In either case the surviving
     rational coefficient has absolute value 2^(k+1)/k!; its sign is kept
     here even though the l1 norm subsequently takes absolute values.
@@ -269,7 +269,7 @@ def main() -> int:
         print("This certificate takes no command-line parameters.", file=sys.stderr)
         return 2
 
-    print("Certified analytic verification 6.2")
+    print("Computer Verification 6.2 (llh_bounds.py)")
     print("===================================")
     print("All polynomial arithmetic is exact rational arithmetic.")
 
@@ -280,7 +280,7 @@ def main() -> int:
 
     all_passed = True
 
-    print("\n(6.15) Two-mode polynomials L_q, reconstructed from (5.30)")
+    print("\n(6.11) Two-mode polynomials L_q, reconstructed from (5.23)")
     l_bounds: list[tuple[Fraction, int]] = []
     for q in (0, 1):
         bound = l_norm_upper(q, pi_upper)
@@ -290,7 +290,7 @@ def main() -> int:
             f"< {decimal_bound(bound, 12, True)}"
         )
     largest_l_bound, largest_l_q = max(l_bounds)
-    all_passed &= report_check("claim (6.15)", largest_l_bound, 534, largest_l_q)
+    all_passed &= report_check("claim (6.11)", largest_l_bound, 534, largest_l_q)
 
     print("\nReconstructing d_q, ell_q, and Hhat_q through degree w^14 ...")
     ell_cores = {q: normalized_ell_core(q) for q in range(1, MAX_Q + 1)}
@@ -301,23 +301,23 @@ def main() -> int:
     assert all(ell_cores[q][0] == 0 for q in ell_cores)
     assert all(h_cores[q][0] == 0 for q in h_cores)
 
-    print("\n(6.16) Normalized Bernoulli polynomials ell_q for 1 <= q <= 50")
+    print("\n(6.12) Normalized Bernoulli polynomials ell_q for 1 <= q <= 50")
     ell_bounds = [
         (common_pi_power_norm_upper(ell_cores[q], q + 1, pi_upper), q)
         for q in range(1, 51)
     ]
     largest_ell_bound, largest_ell_q = max(ell_bounds)
     all_passed &= report_check(
-        "claim (6.16)", largest_ell_bound, 800, largest_ell_q
+        "claim (6.12)", largest_ell_bound, 800, largest_ell_q
     )
 
-    print("\n(6.17) Normalized factors Hhat_q for 1 <= q <= 99")
+    print("\n(6.13) Normalized factors Hhat_q for 1 <= q <= 99")
     h_bounds = [
         (common_pi_power_norm_upper(h_cores[q], q + 1, pi_upper), q)
         for q in range(1, 100)
     ]
     largest_h_bound, largest_h_q = max(h_bounds)
-    all_passed &= report_check("claim (6.17)", largest_h_bound, 600, largest_h_q)
+    all_passed &= report_check("claim (6.13)", largest_h_bound, 600, largest_h_q)
 
     print("\nOverall result:", "PASS" if all_passed else "FAIL")
     return 0 if all_passed else 1

@@ -1,6 +1,6 @@
 # Direct large-prime check
 
-This directory contains a checker for Finite arithmetic verification `finite_cover`.
+This directory contains a checker for Computer Verification 4.17 (`finite_cover.py`).
 
 The program works modulo
 
@@ -50,7 +50,7 @@ c++ -O3 -DNDEBUG -std=c++17 \
 
 The last command is the full computation.  The `--smoke` calculation uses
 `g <= 20`, `n < 64`, degree `10`, and the smaller NTT prime `40961`; it is only
-an implementation test, not part of Verification 4.16.
+an implementation test, not part of Computer Verification 4.17.
 
 On a machine where the binary will only be used locally, adding
 `-march=native` may improve performance.
@@ -108,7 +108,7 @@ check_4_16_large_prime_unresolved.tsv
 If the final number of zero residues is zero, the output ends with
 
 ```text
-RESULT check=4.16 modulus=2013265921 status=PASS unresolved=0
+RESULT check=4.17 modulus=2013265921 status=PASS unresolved=0
 ```
 
 If zero residues remain, the result is labelled `INCOMPLETE`; a second prime
